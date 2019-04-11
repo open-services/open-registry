@@ -3,10 +3,18 @@
 Notice: This project is NOT ready to be shared + used yet. It's development just
 got started and right now we're working on setting up the governance properly
 
-Website: https://open-registry.dev
+https://open-registry.dev
 
-> A non-profit registry of software, programming libraries and other things,
-> run, organized, funded and used by the community
+> A user-focused registry of JavaScript libraries used, organized and funded by the community
+
+### Features of Open-Registry
+
+- Serves a mirror of the npm Registry (npm.open-registry.dev)
+- Community funded
+- Governed by the community
+- Sole focus on providing a library registry
+
+### Why Open-Registry?
 
 Rather than relying on private, for-profit companies to host all of our
 programing libraries (such as npm Inc hosting the npm Registry), we should
@@ -28,13 +36,6 @@ trackable, and also the income which will be by donations.
 
 So, it's time for developers to put their money where their mouth is, and start
 prove that a self-organizing community can self-care about it's needs.
-
-### Features of Open-Registry
-
-- Serves a mirror of the npm Registry
-- Community funded
-- Governed by the community
-- Sole focus on providing a library registry
 
 ### Future goals
 
