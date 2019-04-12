@@ -8,7 +8,8 @@
             [iapetos.core :as prometheus]
             [iapetos.export :as export]
             [iapetos.collector.jvm :as jvm]
-            [ipfs-api.files :refer [write read path-exists?]])
+            [ipfs-api.files :refer [write read path-exists?]]
+            [npm-registry-follow.core :refer [listen-for-changes]])
   (:gen-class))
 
 (defonce registry
@@ -21,7 +22,10 @@
 
         (prometheus/counter :app/tarball)
         (prometheus/counter :app/tarball-cached)
-        (prometheus/counter :app/tarball-fetch-npm))))
+        (prometheus/counter :app/tarball-fetch-npm)
+
+        (prometheus/counter :app/change-feed-skip)
+        (prometheus/counter :app/change-feed-update))))
 
 (def api-multiaddr "/ip4/127.0.0.1/tcp/5001")
 
@@ -30,12 +34,12 @@
 
 (def replicate-url "https://registry.npmjs.org")
 
-(defn metadata-handler [package-name]
+(defn metadata-handler [package-name force-refresh]
   (future (prometheus/inc registry :app/metadata))
   (let [path (format "/npmjs.org/%s/metadata.json" package-name)
         url (format "%s/%s" replicate-url package-name)
         exists? (path-exists? api-multiaddr path)]
-    (if exists?
+    (if (and exists? (not force-refresh))
       (do
         (future (prometheus/inc registry :app/metadata-cached))
         (read api-multiaddr path))
@@ -75,14 +79,33 @@
 
 (defroutes app-routes
   (GET "/metrics" [] (export/text-format registry))
-  (GET "/:package" [package] (metadata-handler package))
+  (GET "/:package" [package] (metadata-handler package false))
   (GET "/:package/-/:tarball" [package tarball] (tarball-handler package tarball))
   (GET "/:scope/:package/-/:tarball" [scope package tarball] (scoped-tarball-handler scope package tarball))
   (route/not-found "Couldnt find that for you"))
+
+(defn handle-change [package-name]
+  (let [path (format "/npmjs.org/%s/metadata.json" package-name)
+        exists? (path-exists? api-multiaddr path)]
+    (when exists?
+      ;; TODO seems sometimes npm are not up-to-date with their own registry
+      ;; as too quick requests can give us old information, even though the
+      ;; replication server told us there was a change
+      (metadata-handler package-name true))
+    (if exists?
+      (future (prometheus/inc registry :app/change-feed-update))
+      (future (prometheus/inc registry :app/change-feed-skip)))))
+
+;; Listens for changes to the npm registry and updates the metadata for
+;; packages that already exists in our cache
+(defn update-metadata-for-existing-packages []
+  (println "Now listening for npm registry changes")
+  (listen-for-changes handle-change))
 
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
   (let [port (Integer/parseInt (or (System/getenv "PORT") "5432"))]
+    (update-metadata-for-existing-packages)
     (run-server #'app-routes {:port port})
     (println (str "Server running on port " port))))
