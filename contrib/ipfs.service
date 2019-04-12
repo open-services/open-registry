@@ -1,0 +1,11 @@
+[Unit]
+Description=IPFS daemon
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/ipfs daemon --init --init-profile=server,badgerds --enable-namesys-pubsub --enable-pubsub-experiment
+Restart=on-failure
+LimitNOFILE=65536
+
+[Install]
+WantedBy=default.target

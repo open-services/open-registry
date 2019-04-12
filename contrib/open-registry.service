@@ -1,0 +1,13 @@
+[Unit]
+Description=open-registry
+
+ [Service]
+WorkingDirectory=/app
+ExecStart=/usr/bin/java -jar /app/open-registry.jar
+Restart=on-failure
+Environment=PORT=80
+Environment=REGISTRY_URL=http://npm.open-registry.dev
+
+ [Install]
+WantedBy=default.target
+
