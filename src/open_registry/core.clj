@@ -25,10 +25,15 @@
 
 (def api-multiaddr "/ip4/127.0.0.1/tcp/5001")
 
+(def registry-url (String. (or (System/getenv "REGISTRY_URL")
+                               "http://registry.open-registry.dev:3000")))
+
+(def replicate-url "https://registry.npmjs.org")
+
 (defn metadata-handler [package-name]
   (future (prometheus/inc registry :app/metadata))
   (let [path (format "/npmjs.org/%s/metadata.json" package-name)
-        url (format "https://registry.npmjs.org/%s" package-name)
+        url (format "%s/%s" replicate-url package-name)
         exists? (path-exists? api-multiaddr path)]
     (if exists?
       (do
@@ -36,9 +41,8 @@
         (read api-multiaddr path))
       (let [res (http2/get url {:as :text})
             new-body (clojure.string/replace (:body res)
-                                             #"https://registry.npmjs.org"
-                                             ;; TODO needs to rewrite the right address
-                                             "http://registry.open-registry.dev:3000")]
+                                             (re-pattern replicate-url)
+                                             registry-url)]
         (future (prometheus/inc registry :app/metadata-fetch-npm))
         (write api-multiaddr path new-body)
         (-> res
@@ -61,12 +65,12 @@
 
 (defn tarball-handler [package-name tarball]
   (let [path (format "/npmjs.org/%s/%s" package-name tarball)
-        url (format "https://registry.npmjs.org/%s/-/%s" package-name tarball)]
+        url (format "%s/%s/-/%s" replicate-url package-name tarball)]
     (get-tarball url path)))
 
 (defn scoped-tarball-handler [scope package-name tarball]
   (let [path (format "/npmjs.org/%s/%s/%s" scope package-name tarball)
-        url (format "https://registry.npmjs.org/%s/%s/-/%s" scope package-name tarball)]
+        url (format "%s/%s/%s/-/%s" replicate-url scope package-name tarball)]
     (get-tarball url path)))
 
 (defroutes app-routes
