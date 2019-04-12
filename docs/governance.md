@@ -3,13 +3,7 @@
 NOTICE: This is about to be setup and not complete. Help us finish it by giving
 feedback!
 
-### 1. Definitions
-
-Contributors - Anyone who has contributed to the project in terms of: support, funds or development time
-Members - Contributors that have been voted by the current membership to have voting right on elections to leadership and other resolutions
-Leadership - Members who helps steer the direction of the project
-
-### 2. Name & Purpose
+### 1. Name & Purpose
 
 The official name of the project and organization is "Open Registry".
 
