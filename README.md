@@ -3,7 +3,8 @@
 Notice: This project is NOT ready to be shared + used yet. It's development just
 got started and right now we're working on setting up the governance properly
 
-https://open-registry.dev
+Website: https://open-registry.dev
+Preliminary npm proxy: http://npm.open-registry.dev
 
 > A user-focused registry of JavaScript libraries used, organized and funded by the community
 
@@ -13,6 +14,19 @@ https://open-registry.dev
 - Community funded
 - Governed by the community
 - Sole focus on providing a library registry
+
+### Try it out
+
+Wanna see how it's performing? You can try it out by using `http://npm.open-registry.dev`
+as the `registry` config in your preferred client.
+
+```
+# npm
+npm config set registry http://npm.open-registry.dev
+
+# yarn
+yarn config set registry http://npm.open-registry.dev
+```
 
 ### Why Open-Registry?
 
