@@ -1,7 +1,7 @@
 ## Governance of Open Registry
 
-NOTICE: This is about to be setup and not complete. Help us finish it by giving
-feedback!
+NOTICE: This document is currently being developed and not complete yet.
+Help us finish it by giving feedback about anything in this document!
 
 ### 1. Name & Purpose
 
