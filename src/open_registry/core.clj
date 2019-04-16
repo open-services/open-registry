@@ -105,7 +105,9 @@
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
-  (let [port (Integer/parseInt (or (System/getenv "PORT") "5432"))]
+  (let [port (Integer/parseInt (or (System/getenv "PORT") "5432"))
+        threads (Integer/parseInt (or (System/getenv "SERVER_THREADS") "128"))]
     (update-metadata-for-existing-packages)
-    (run-server #'app-routes {:port port})
+    (run-server #'app-routes {:port port
+                              :thread threads})
     (println (str "Server running on port " port))))
