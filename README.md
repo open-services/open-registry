@@ -103,7 +103,7 @@ What would you want to know?
 - Finish governance and contributing guidelines
 - Publish metrics
 - Solve concurrency issue when two identical packages are being installed
-  - Locks?
+  - Queue for external downloads
 
 ### Some Handy Links
 
