@@ -1,3 +1,5 @@
+![Open-Registry Logo](logos/transparent.png)
+
 ## Open-Registry - Open JavaScript Module Registry
 
 Notice: This project is NOT ready to be shared + used yet. It's development just
