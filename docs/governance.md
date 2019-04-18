@@ -3,6 +3,8 @@
 NOTICE: This document is currently being developed and not complete yet.
 Help us finish it by giving feedback about anything in this document!
 
+Last Update: 2019-04-18
+
 ### 1. Name & Purpose
 
 1.1 The official name of the project and organization is "Open Registry".
