@@ -30,6 +30,32 @@ curl  -H 'Authorization: Bearer <token>' \
       -H 'Accept: application/json' \
       https://api.dnsimple.com/v2/whoami
 
+Funding
+
+https://stripe.com/docs/api/payouts
+
+https://stripe.com/docs/api/balance
+
+### Services
+
+The following services are to be connected to get the full picture
+
+- Paypal - Actual incoming donations
+- Stripe - Actual incoming donations
+- LiberaPay - Expected incoming donations
+- OpenCollective - Expected incoming donations
+- Hetzner - Show expected + actual costs
+- DNSimple - Actual costs
+
+## Metrics to include
+
+- How much the organization costs in total
+- Where does that cost go to exactly
+- How much we pay in fees/tax on donations
+- How much is donated right now
+- How much of that has been spent
+- On what has that been spent?
+
 ## finance.open-registry.dev
 
 finance.open-registry.dev is a dedicated domain for the API of financing for Open-Registry
