@@ -7,11 +7,6 @@ Link: https://liberapay.com/Open-Registry-Community/
 Currently connected to Victor Bjelkholm's Stripe + Paypal and he will act as 
 treasurer until a better option appears.
 
-All funds will go towards hosting. Excess will go towards development time, if
-there is still excess, funding will be donated to LiberaPay itself.
-
-(The above should be written into the governance)
-
 https://liberapay.com/Open-Registry-Community/public.json outlines current funding
 
 curl -u 'user-id:password' https://robot-ws.your-server.de/server is currently running servers

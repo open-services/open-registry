@@ -56,28 +56,11 @@ trackable, and also the income which will be by donations.
 So, it's time for developers to put their money where their mouth is, and start
 prove that a self-organizing community can self-care about it's needs.
 
-### Finance Interface
-
-The finance interface has to be connected to different services to figure out
-where we are at with the application.
-
-- Paypal - To list incoming donations
-- Stripe - -11-
-- OpenCollective - -11-
-- Hetzner - To show costs
-- DNSimple - To show costs
-- Gandi - To show costs
-
 ### Metrics Interface
 
 What would you want to know?
 
 - Number of instances for hosting
-- How much the organization costs in total
-- Where does that cost go to exactly
-- How much is donated right now
-- How much of that has been spent
-- On what has that been spent?
 - How many errors are happening currently?
 - How many packages is the registry serving currently?
 - How many of those are cached?

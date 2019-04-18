@@ -141,6 +141,10 @@ If a person would like to join Leadership, they need to:
 
 11.5 Any excess from funding developers to work on Open-Registry, will be donated towards LiberaPay
 
+11.6 One individual should be elected by vote to be the Treasurer who is responsible for the donation pipeline and making sure the funding is correct
+
+11.7 Current Treasurer is `Victor Bjelkholm (victorb)`
+
 ## 12. Company-Representation
 
 12.1 You're not allowed to be part of either Contributors, Members or Leadership representing a company. You have to represent yourself as an individual and make all decisions considering the best for the users of the service.
