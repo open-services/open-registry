@@ -2,6 +2,11 @@
 
 Right now, funding will be setup via LiberaPay. Under username `Open-Registry-Community`
 
+Link: https://liberapay.com/Open-Registry-Community/
+
+Currently connected to Victor Bjelkholm's Stripe + Paypal and he will act as 
+treasurer until a better option appears.
+
 All funds will go towards hosting. Excess will go towards development time, if
 there is still excess, funding will be donated to LiberaPay itself.
 

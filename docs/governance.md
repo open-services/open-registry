@@ -131,9 +131,15 @@ If a person would like to join Leadership, they need to:
 
 11.1 Open-Registry should only be funded by individuals or organizations who chose to donate a set amount each month, or one-time donations.
 
-11.2 Only donations made from individuals allows you to join the Contributors Group.
+11.2 Only donations made from individuals allows you to join the Contributors Group (see 12. Company-Representation)
 
-11.3 All income/expenses of Open-Registry and all related entities should be publically viewable, within one business day of the transaction happening.
+11.3 All income/expenses of Open-Registry and all related entities should be publicly viewable, within one business day of the transaction happening.
+
+11.4 Funding should go directly to services to keep Open-Registry up and well running (servers, DNS and similar)
+
+11.4 Any excess from covering the general month-to-month expenses should go towards funding developers to work Open-Registry
+
+11.5 Any excess from funding developers to work on Open-Registry, will be donated towards LiberaPay
 
 ## 12. Company-Representation
 
