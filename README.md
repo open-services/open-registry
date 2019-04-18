@@ -9,6 +9,8 @@ Website: https://open-registry.dev
 
 Preliminary npm proxy: http://npm.open-registry.dev
 
+LiberaPay for donations: https://liberapay.com/open-registry-community
+
 > A user-focused registry of JavaScript libraries used, organized and funded by the community
 
 ### Features of Open-Registry
@@ -54,15 +56,6 @@ trackable, and also the income which will be by donations.
 So, it's time for developers to put their money where their mouth is, and start
 prove that a self-organizing community can self-care about it's needs.
 
-### Future goals
-
-- Cryptographically signed packages
-- Decentralized hosting where many operators can contribute to hosting securely
-- Aims to be adopted by the OpenJS Foundation (or similar)
-  - OpenJS = merge of the Node.js Foundation and the JS Foundation
-- At least as fast as the npm registry in four key regions (Europe, North + South America and Asia)
-- Verified modules (auto+manually inspected modules)
-
 ### Finance Interface
 
 The finance interface has to be connected to different services to figure out
@@ -89,23 +82,6 @@ What would you want to know?
 - How many packages is the registry serving currently?
 - How many of those are cached?
 - How far back are we from the npm registry?
-
-### Roadmap to MVP
-
-- Waiting for GitHub Organization
-- Ability to install packages from tested matrix of projects when installing deps
-- See expected/actual income per month
-- See expected/actual expense per month
-- Governance
-
-### Current High-Priority Issues
-
-- Setup Infrastructure
-- Publish readable documentation
-- Finish governance and contributing guidelines
-- Publish metrics
-- Solve concurrency issue when two identical packages are being installed
-  - Queue for external downloads
 
 ### Some Handy Links
 
