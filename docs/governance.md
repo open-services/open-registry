@@ -167,3 +167,7 @@ up a good precedent for how to govern a open source project.
 - https://docs.brew.sh/Homebrew-Governance
 - https://www.rust-lang.org/governance
 - https://www.apache.org/foundation/governance/
+
+## Changelog
+
+You can always inspect the history of this document here: [https://github.com/open-services/open-registry/commits/master/docs/governance.md](https://github.com/open-services/open-registry/commits/master/docs/governance.md)
