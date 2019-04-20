@@ -6,4 +6,4 @@ scrape_configs:
     metrics_path: '/metrics'
 
     static_configs:
-      - targets: ['npm.open-registry.dev']
+      - targets: ['open-registry:5432']

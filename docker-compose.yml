@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  app:
+    image: clojure:openjdk-8-lein
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: lein repl :headless :start :host 0.0.0.0 :port 33333
+    environment:
+      - PORT=5432
+      - IPFS_API=/ip4/ipfs/tcp/5001
+  metrics:
+    image: prom/prometheus:v2.9.1
+    volumes:
+      - prometheus:/prometheus
+      - ./prometheus.yml:/prometheus.yml
+    command: --config.file=/prometheus.yml --storage.tsdb.path=/prometheus
+  ipfs:
+    image: ipfs/go-ipfs:v0.4.19
+
+volumes:
+  prometheus:
+  lein-deps:
