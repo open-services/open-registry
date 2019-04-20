@@ -1,3 +1,22 @@
 .link {
   color: #3273dc !important;
 }
+
+.is-info {
+  background-color: #F6AE2D !important;
+}
+
+.is-primary {
+  background-color: #86BBD8 !important;
+}
+
+.get-started-color {
+  background-color: #14aeae !important;
+  color: white !important;
+}
+
+.button:hover {
+  text-decoration: underline;
+  filter: brightness(1.1);
+}
+

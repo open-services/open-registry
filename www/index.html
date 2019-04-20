@@ -2,6 +2,8 @@
 <html lang="en" class="has-navbar-fixed-top">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Description" content="A JavaScript Package Registry funded, developed and maintained by the community, for the community">
     <title>Open-Registry</title>
     <link rel="stylesheet" href="./bulma.min.css">
     <link rel="stylesheet" href="./style.css">
@@ -9,14 +11,14 @@
   <body>
     <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://open-registry.dev">
-          <img src="./logo.png"/>
+        <a class="navbar-item" href="./">
+          <img alt="Open-Registry Logo" src="./logo.png"/>
         </a>
       </div>
 
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item" href="https://open-registry.dev">
+          <a class="navbar-item" href="./">
             Open-Registry
           </a>
         </div>
@@ -53,40 +55,39 @@
         </div>
       </div>
     </nav>
-    <section class="hero is-info is-large is-bold">
+    <section class="hero is-medium has-text-light" style="background-color: #253D5B">
       <div class="hero-body">
         <div class="container">
           <article class="media" style="align-items: center;">
-            <figure class="media-left">
+            <figure class="media-left box">
               <p class="image">
-              <img src="./logo.png" />
+              <img alt="Open-Registry Logo" src="./logo.png" />
               </p>
             </figure>
             <div class="media-content">
               <div class="content">
-                <h1 class="title">
+                <h1 class="title has-text-light">
                   The Open-Registry
                 </h1>
-                <h4 class="subtitle">
+                <h4 class="subtitle has-text-light">
                   A JavaScript Package Registry funded, developed and
                   maintained by the community, for the community
                 </h4>
-                <a href="#get-started" class="button is-light">Get Started using Open-Registry</a>
-                <br/><br/>
+                <a href="#get-started" class="button is-light has-text-white get-started-color">Get Started</a>
+                <a href="https://liberapay.com/open-registry-community" target="_blank" class="button is-info">Donate</a>
                 <a href="#contribute" class="button is-primary">Contribute</a>
-                <a href="https://liberapay.com/open-registry-community" target="_blank" class="button is-link">Donate</a>
               </div>
             </div>
           </article>
         </div>
       </div>
     </section>
-    <section class="hero is-primary is-medium">
+    <section class="hero is-medium" style="background-color: #86BBD8">
       <span id="features"></span>
       <div class="hero-body">
         <div class="container">
           <div class="content">
-            <h1 class="title">
+            <h1 class="title has-text-white">
               Features
             </h1>
             <div class="tile is-ancestor">
@@ -162,8 +163,8 @@
             </h1>
             <div class="content">
               <ul>
-                <li>Cryptographically signed packages (<a class="link" href="https://github.com/open-services/open-registry/blob/master/docs/cryptographically-signed-packages.md">participate in the discussion</a>)</li>
-                <li>Decentralized hosting of packages (<a class="link" href="https://github.com/open-services/open-registry/blob/master/docs/federation.md">help us plan and develop it</a>)</li>
+                <li>Cryptographically signed packages (<a class="link" href="https://github.com/open-services/open-registry/blob/master/docs/cryptographically-signed-packages.md" target="_blank">participate in the discussion</a>)</li>
+                <li>Decentralized hosting of packages (<a class="link" href="https://github.com/open-services/open-registry/blob/master/docs/federation.md" target="_blank">help us plan and develop it</a>)</li>
                 <li>Adoption by OpenJS Foundation (or similar)</li>
               </ul>
             </div>
@@ -171,7 +172,7 @@
         </div>
       </div>
     </section>
-    <section class="hero is-success is-medium">
+    <section class="hero is-medium has-background-light">
       <span id="get-started"></span>
       <div class="hero-body">
         <div class="container">
@@ -335,12 +336,12 @@
         </div>
         </div>
         </section> -->
-        <section class="hero is-warning is-medium">
+        <section class="hero is-medium has-text-light" style="background-color: #5C6B73">
           <span id="community"></span>
           <div class="hero-body">
             <div class="container">
               <div class="content">
-                <h1 class="title">
+                <h1 class="title has-text-light">
                   Community
                 </h1>
                 <div class="tile is-ancestor">
@@ -349,20 +350,20 @@
                       <p>Open-Registry is a project for the community, by the community.</p>
                       <p>Feel free to join any discussions you see and that you think you can help in.</p>
                       <p>We all work together and we all have the same goal:<br/>
-                      <strong>Create the best JavaScript Package Registry in the world</strong></p>
+                      <strong class="has-text-light">Create the best JavaScript Package Registry in the world</strong></p>
                       <p>The main discussions and governance happens over GitHub and using their collaboration features.</p>
                       <p>On the right, you can find links to the most important gathering points</p>
                     </div>
                   </div>
                   <div class="tile is-parent">
                     <div class="tile is-child box">
-                      <ul style="list-style: none">
-                        <li><a href="https://github.com/open-services" class="link">GitHub Organization</a> - Umbrella organization for all projects within Open-Registry</li>
-                        <li><a href="https://github.com/open-services/open-registry" class="link">Main GitHub Project</a> - Most code and discussions happen here</li>
-                        <li><a href="#" class="link">LiberaPay Account</a> - Donations go through LiberaPay</li>
-                        <li><a href="#" class="link">Real-time Chat</a> - A channel (#open-registry @ Freenode) for when you need help from someone <strong>right now!</strong></li>
-                        <li><a href="#" class="link">Mailing List</a> - Longer conversations that doesn't neccessary ends up in some action</li>
-                        <li><a href="#" class="link">Twitter Account</a> - Announcements and other fun stuff</li>
+                      <ul style="list-style: none; margin: 0px;">
+                        <li><a href="https://github.com/open-services" target="_blank" class="link">GitHub Organization</a> - Umbrella organization for all projects within Open-Registry</li>
+                        <li><a href="https://github.com/open-services/open-registry" target="_blank" class="link">Main GitHub Project</a> - Most code and discussions happen here</li>
+                        <li><a href="https://liberapay.com/Open-Registry-Community" target="_blank" class="link">LiberaPay Account</a> - Donations go through LiberaPay</li>
+                        <li><a href="http://webchat.freenode.net/?channels=%23open-registry&uio=d4" target="_blank" class="link">Real-time Chat</a> - A channel (#open-registry @ Freenode) for when you need live help</li>
+                        <li><a href="https://groups.google.com/forum/#!forum/open-registry" target="_blank" class="link">Mailing List</a> - Longer conversations that doesn't neccessary ends up in some action</li>
+                        <li><a href="https://twitter.com/theopenregistry" target="_blank" class="link">Twitter Account</a> - Announcements and other fun stuff</li>
                       </ul>
                     </div>
                   </div>
@@ -371,7 +372,7 @@
             </div>
           </div>
         </section>
-        <section class="hero is-info is-medium">
+        <section class="hero is-medium" style="background-color: #B2D3E6">
           <span id="contribute"></span>
           <div class="hero-body">
             <div class="container">
