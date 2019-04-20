@@ -1,0 +1,13 @@
+site_name: Open-Registry Documentation
+repo_url: https://github.com/open-services/open-registry
+site_description: All the documentation related to Open-Registry
+theme: readthedocs
+copyright: "Copyright: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)"
+nav:
+- Introduction: index.md
+- Installation: installation.md
+- Governance: governance.md
+- Finance: finance.md
+- Contributing: contributing.md
+- Metrics: metrics.md
+- Alternatives to Open-Registry: alternatives.md
