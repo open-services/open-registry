@@ -20,3 +20,7 @@ Get the IP of the container with the following command:
 ```
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps | grep -i clojure | cut -d ' ' -f 1)
 ```
+
+```
+172.24.0.4 open-registry.dev docs.open-registry.dev npm.open-registry.dev metrics.open-registry.dev ipfs.open-registry.dev docs.open-registry.dev dashboard.open-registry.dev
+```

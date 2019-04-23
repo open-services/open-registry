@@ -11,6 +11,12 @@
                  [open-services/npm-registry-follow "1.0.0"]
                  [io.prometheus/simpleclient_hotspot "0.6.0"]
                  [iapetos "0.1.8"]]
+  ;; Only to be used in dev for profiling etc
+  ;; :jvm-opts ["-Dcom.sun.management.jmxremote"
+  ;;            "-Dcom.sun.management.jmxremote.port=9010"
+  ;;            "-Dcom.sun.management.jmxremote.local.only=false"
+  ;;            "-Dcom.sun.management.jmxremote.authenticate=false"
+  ;;            "-Dcom.sun.management.jmxremote.ssl=false"]
   :plugins [[lein-ring "0.12.5"]]
   :main ^:skip-aot open-registry.core
   :ring {:handler open-registry.core/app-routes}

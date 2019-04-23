@@ -2,7 +2,6 @@
   (:require [org.httpkit.server :refer [run-server]]
             [compojure.core :refer [defroutes GET]]
             [compojure.route :as route]
-            [iapetos.core :as prometheus]
             [clj-http.client :as http2]
             [ipfs-api.files :refer [write read path-exists?]]
             [open-registry.metrics :as metrics]
@@ -23,6 +22,7 @@
   (let [path (format "/npmjs.org/%s/metadata.json" package-name)
         url (format "%s/%s" replicate-url package-name)
         exists? (path-exists? api-multiaddr path)]
+    ;; TODO should not be here as we're writing the new registry url permanently..
     (if (and exists? (not force-refresh))
       (do
         (future (metrics/increase :app/metadata-cached))
@@ -62,7 +62,6 @@
     (get-tarball url path)))
 
 (defroutes app-routes
-  (GET "/metrics" [] (metrics/registry-export))
   (GET "/:package" [package] (metadata-handler package false))
   (GET "/:package/-/:tarball" [package tarball] (tarball-handler package tarball))
   (GET "/:scope/:package/-/:tarball" [scope package tarball] (scoped-tarball-handler scope package tarball))
@@ -71,4 +70,12 @@
 (defn start-server [port threads]
     (run-server #'app-routes {:port port
                               :thread threads})
-    (println (str "Server running on port " port)))
+    (println (str "Server running on port " port " with " threads " threads")))
+
+(comment
+  (future
+    (println "hello"))
+  (future
+    (start-server 5432 8))
+  
+  )

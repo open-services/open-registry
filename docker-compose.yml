@@ -5,10 +5,18 @@ services:
     working_dir: /app
     volumes:
       - .:/app
-    command: lein repl :headless :start :host 0.0.0.0 :port 33333
+      - lein-deps:/root/.m2
+    # TODO currently missing repl connection
+    # command: lein repl :headless :start :host 0.0.0.0 :port 33333
+    command: lein run
+    ports:
+      - 9010:9010
     environment:
       - PORT=5432
+      - METRICS_PORT=2345
+      - SERVER_THREADS=16
       - IPFS_API=/ip4/ipfs/tcp/5001
+      - REGISTRY_URL=http://npm.open-registry.dev:2015
   metrics:
     image: prom/prometheus:v2.9.1
     volumes:
@@ -17,7 +25,32 @@ services:
     command: --config.file=/prometheus.yml --storage.tsdb.path=/prometheus
   ipfs:
     image: ipfs/go-ipfs:v0.4.19
+  front:
+    #image: abiosoft/caddy:0.11.5
+    # TODO currently custom built image
+    # docker build --build-arg plugins=prometheus,cache \
+    # github.com/abiosoft/caddy-docker.git -t caddy-prometheus
+    image: caddy-prometheus
+    ports:
+      - 2015:2015
+      - 9180:9180
+    volumes:
+      - ./Caddyfile:/etc/Caddyfile
+      - caddy:/root/.caddy
+  dashboard:
+    image: grafana/grafana:6.1.4
+    # grafana-piechart-panel
+    environment:
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-piechart-panel
+    ports:
+      - 3000:3000
+    volumes:
+      - ./grafana/config.ini:/etc/grafana/grafana.ini
+      - grafana:/var/lib/grafana
+      - ./grafana/:/etc/grafana/provisioning
 
 volumes:
   prometheus:
   lein-deps:
+  caddy:
+  grafana:

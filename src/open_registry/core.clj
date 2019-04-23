@@ -29,9 +29,11 @@
   "I don't do a whole lot ... yet."
   [& args]
   (let [port (Integer/parseInt (or (System/getenv "PORT") "5432"))
+        metrics-port (Integer/parseInt (or (System/getenv "METRICS_PORT") "2345"))
         threads (Integer/parseInt (or (System/getenv "SERVER_THREADS") "128"))]
-    (update-metadata-for-existing-packages)
+    ;; (update-metadata-for-existing-packages)
     (http/start-server port threads)
+    (metrics/start-server metrics-port)
   ))
 
 (comment

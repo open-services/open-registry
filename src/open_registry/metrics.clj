@@ -1,7 +1,8 @@
 (ns open-registry.metrics
   (:require [iapetos.core :as prometheus]
             [iapetos.export :as export]
-            [iapetos.collector.jvm :as jvm]))
+            [iapetos.collector.jvm :as jvm]
+            [iapetos.standalone :as standalone]))
 
 (defonce registry
   (-> (prometheus/collector-registry)
@@ -23,3 +24,6 @@
 
 (defn increase [k]
   (prometheus/inc registry k))
+
+(defn start-server [port]
+  (standalone/metrics-server registry {:port port}))
