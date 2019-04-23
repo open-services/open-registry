@@ -30,9 +30,10 @@
   [& args]
   (let [port (Integer/parseInt (or (System/getenv "PORT") "5432"))
         metrics-port (Integer/parseInt (or (System/getenv "METRICS_PORT") "2345"))
-        threads (Integer/parseInt (or (System/getenv "SERVER_THREADS") "128"))]
+        threads (Integer/parseInt (or (System/getenv "SERVER_THREADS") "128"))
+        in-dev? (Boolean/parseBoolean (or (System/getenv "SERVER_DEV") "false"))]
     ;; (update-metadata-for-existing-packages)
-    (http/start-server port threads)
+    (http/start-server port threads in-dev?)
     (metrics/start-server metrics-port)
   ))
 

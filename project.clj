@@ -6,6 +6,7 @@
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [http-kit "2.3.0"]
                  [clj-http "3.9.1"]
+                 [ring/ring-devel "1.7.1"]
                  [compojure "1.6.1"]
                  [open-services/ipfs-api "1.0.0"]
                  [open-services/npm-registry-follow "1.0.0"]

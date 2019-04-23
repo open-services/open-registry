@@ -12,7 +12,6 @@ open-registry.dev {
 npm.open-registry.dev {
   tls off
   gzip
-  cache
   prometheus {
     address 0.0.0.0:9180
   }

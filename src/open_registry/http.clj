@@ -5,6 +5,7 @@
             [clj-http.client :as http2]
             [ipfs-api.files :refer [write read path-exists?]]
             [open-registry.metrics :as metrics]
+            [ring.middleware.reload :as reload]
             ))
 
 (def replicate-url "https://registry.npmjs.org")
@@ -65,12 +66,15 @@
   (GET "/:package" [package] (metadata-handler package false))
   (GET "/:package/-/:tarball" [package tarball] (tarball-handler package tarball))
   (GET "/:scope/:package/-/:tarball" [scope package tarball] (scoped-tarball-handler scope package tarball))
-  (route/not-found "Couldnt find that for you"))
+  (route/not-found "I'm sorry to report that I could not find that for you"))
 
-(defn start-server [port threads]
-    (run-server #'app-routes {:port port
-                              :thread threads})
-    (println (str "Server running on port " port " with " threads " threads")))
+(defn start-server [port threads in-dev?]
+  (let [handler (if in-dev?
+                  (reload/wrap-reload #'app-routes)
+                  #'app-routes)]
+    (run-server handler {:port port
+                         :thread threads})
+    (println (str "Server running on port " port " with " threads " threads"))))
 
 (comment
   (future
