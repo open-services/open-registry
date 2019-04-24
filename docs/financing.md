@@ -1,11 +1,37 @@
 # Financing
 
-Right now, funding will be setup via LiberaPay. Under username `Open-Registry-Community`
+## Goal with Financing
 
-Link: https://liberapay.com/Open-Registry-Community/
+As Open-Registry is a Open Service, one requirement is that the finances are
+open to public to inspect. The details will be visible both on the homepage
+and on the metrics dashboard, where people can drill down into the details if
+they so wish.
 
-Currently connected to Victor Bjelkholm's Stripe + Paypal and he will act as 
-treasurer until a better option appears.
+## Treasurer
+> For more details, see the document about Governance
+
+The Treasurer is elected by votes and is responsible for the donation pipeline
+and making sure expenses are paid.
+
+## Transparency
+
+No funds should enter/leave the account without knowing where it comes from and
+where it's going. It should also be viewable by the public.
+
+## Payment Methods
+
+Currently, funding happens via LiberaPay under the username `Open-Registry-Community`.
+
+https://liberapay.com/Open-Registry-Community/
+
+The LiberaPay account is connected with Stripe and PayPal and goes to the current
+treasurer who is responsible for payments.
+
+We hope to replace this with a OpenCollective in the future.
+
+# Financing API
+
+> Notes for developers who implement the metrics API for financing
 
 https://liberapay.com/Open-Registry-Community/public.json outlines current funding
 
@@ -31,9 +57,9 @@ https://stripe.com/docs/api/payouts
 
 https://stripe.com/docs/api/balance
 
-### Services
+### Possible Services
 
-The following services are to be connected to get the full picture
+The following services are to be connected to get the full picture of the financing
 
 - Paypal - Actual incoming donations
 - Stripe - Actual incoming donations
