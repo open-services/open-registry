@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Finance - Open-Registry Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Finance";
+    var mkdocs_page_input_path = "financing.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Open-Registry Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Introduction</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../installation/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../governance/">Governance</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Finance</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#financing">Financing</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#services">Services</a></li>
+        
+            <li><a class="toctree-l3" href="#metrics-to-include">Metrics to include</a></li>
+        
+            <li><a class="toctree-l3" href="#financeopen-registrydev">finance.open-registry.dev</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../contributing/">Contributing</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../metrics/">Metrics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../architecture/">Architecture</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../http-api/">HTTP API</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../alternatives/">Alternatives to Open-Registry</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Open-Registry Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Finance</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/open-services/open-registry/edit/master/docs/financing.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="financing">Financing</h1>
+<p>Right now, funding will be setup via LiberaPay. Under username <code>Open-Registry-Community</code></p>
+<p>Link: https://liberapay.com/Open-Registry-Community/</p>
+<p>Currently connected to Victor Bjelkholm's Stripe + Paypal and he will act as 
+treasurer until a better option appears.</p>
+<p>https://liberapay.com/Open-Registry-Community/public.json outlines current funding</p>
+<p>curl -u 'user-id:password' https://robot-ws.your-server.de/server is currently running servers</p>
+<p>Get Traffic</p>
+<p>curl -u user-id:password https://robot-ws.your-server.de/traffic \
+       --data-urlencode 'type=month' \
+       --data-urlencode 'from=2010-09-01' \
+       --data-urlencode 'to=2010-09-31' \
+       --data-urlencode 'ip=123.123.123.123'</p>
+<p>DNSimple</p>
+<p>curl  -H 'Authorization: Bearer <token>' \
+      -H 'Accept: application/json' \
+      https://api.dnsimple.com/v2/whoami</p>
+<p>Funding</p>
+<p>https://stripe.com/docs/api/payouts</p>
+<p>https://stripe.com/docs/api/balance</p>
+<h3 id="services">Services</h3>
+<p>The following services are to be connected to get the full picture</p>
+<ul>
+<li>Paypal - Actual incoming donations</li>
+<li>Stripe - Actual incoming donations</li>
+<li>LiberaPay - Expected incoming donations</li>
+<li>OpenCollective - Expected incoming donations</li>
+<li>Hetzner - Show expected + actual costs</li>
+<li>DNSimple - Actual costs</li>
+</ul>
+<h2 id="metrics-to-include">Metrics to include</h2>
+<ul>
+<li>How much the organization costs in total</li>
+<li>Where does that cost go to exactly</li>
+<li>How much we pay in fees/tax on donations</li>
+<li>How much is donated right now</li>
+<li>How much of that has been spent</li>
+<li>On what has that been spent?</li>
+</ul>
+<h2 id="financeopen-registrydev">finance.open-registry.dev</h2>
+<p>finance.open-registry.dev is a dedicated domain for the API of financing for Open-Registry</p>
+<p>The root URL of the api is <code>finance.open-registry.dev</code> and there is no authentication.</p>
+<p>Responses might include data that is up to one hour old.</p>
+<h3 id="get-incomenow">GET <code>/income/now</code></h3>
+<blockquote>
+<p>The current status of income</p>
+</blockquote>
+<p>Response:</p>
+<pre><code>{
+  &quot;donators&quot;: 32,
+  &quot;liberapay&quot;: {
+    &quot;username&quot;: &quot;Open-Registry-Community&quot;,
+    &quot;donators&quot;: 10,
+    &quot;receiving&quot;: {
+      &quot;amount&quot;: &quot;10.32&quot;,
+      &quot;currency&quot;: &quot;EUR&quot;
+    }
+  },
+  &quot;receiving&quot;: {
+    &quot;amount&quot;: &quot;123.23&quot;,
+    &quot;currency&quot;: &quot;EUR&quot;
+  }
+}
+</code></pre>
+
+<h3 id="get-incomeday">GET <code>/income/day</code></h3>
+<p>Response is an array of responses structured like <code>/income/now</code> but for each
+day for the last 30 days</p>
+<h3 id="get-incomeweek">GET <code>/income/week</code></h3>
+<p>Same as <code>/income/day</code> but for each week the last 3 months</p>
+<h3 id="get-incomemonth">GET <code>/income/month</code></h3>
+<p>Same as <code>/income/day</code> but for each month the last 1 year</p>
+<h3 id="get-incomeyear-not-to-implemented-yet">GET <code>/income/year</code> (not to implemented yet)</h3>
+<p>Same as <code>/income/day</code> but for each year the last 3 years</p>
+<h3 id="get-incomeall">GET <code>/income/all</code></h3>
+<p>Full history since day one, grouped by months</p>
+<h3 id="get-expenses">GET <code>/expenses</code></h3>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../contributing/" class="btn btn-neutral float-right" title="Contributing">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../governance/" class="btn btn-neutral" title="Governance"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/open-services/open-registry/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../governance/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../contributing/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
