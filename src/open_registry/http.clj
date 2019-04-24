@@ -2,10 +2,12 @@
   (:require [org.httpkit.server :refer [run-server]]
             [compojure.core :refer [defroutes GET]]
             [compojure.route :as route]
+            [ring.util.response :refer [response content-type]]
             [clj-http.client :as http2]
-            [ipfs-api.files :refer [write read path-exists?]]
+            [ipfs-api.files :refer [stat write read path-exists?]]
             [open-registry.metrics :as metrics]
             [ring.middleware.reload :as reload]
+            [clojure.data.json :refer [write-str]]
             ))
 
 (def replicate-url "https://registry.npmjs.org")
@@ -17,6 +19,9 @@
 ;; TODO needs System/getenv + passed from open-registry.core
 (def api-multiaddr (String. (or (System/getenv "IPFS_API")
                                "/ip4/127.0.0.1/tcp/5001")))
+
+(def index-response (atom {:root-hash nil
+                           :root-size 0}))
 
 (defn metadata-handler [package-name force-refresh]
   (future (metrics/increase :app/metadata))
@@ -62,11 +67,18 @@
         url (format "%s/%s/%s/-/%s" replicate-url scope package-name tarball)]
     (get-tarball url path)))
 
+(defn index-handler []
+  (-> (stat api-multiaddr "/npmjs.org")
+      (write-str)
+      (response)
+      (content-type "application/json")))
+
 (defroutes app-routes
   (GET "/:package" [package] (metadata-handler package false))
   (GET "/:package/-/:tarball" [package tarball] (tarball-handler package tarball))
   (GET "/:scope/:package/-/:tarball" [scope package tarball] (scoped-tarball-handler scope package tarball))
-  (route/not-found "I'm sorry to report that I could not find that for you"))
+  (GET "/" [] (index-handler))
+  (route/not-found "Sorry, nothing here"))
 
 (defn start-server [port threads in-dev?]
   (let [handler (if in-dev?

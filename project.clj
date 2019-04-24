@@ -8,9 +8,10 @@
                  [clj-http "3.9.1"]
                  [ring/ring-devel "1.7.1"]
                  [compojure "1.6.1"]
-                 [open-services/ipfs-api "1.0.0"]
+                 [open-services/ipfs-api "1.0.1"]
                  [open-services/npm-registry-follow "1.0.0"]
                  [io.prometheus/simpleclient_hotspot "0.6.0"]
+                 [org.clojure/data.json "0.2.6"]
                  [iapetos "0.1.8"]]
   ;; Only to be used in dev for profiling etc
   ;; :jvm-opts ["-Dcom.sun.management.jmxremote"
