@@ -20,3 +20,14 @@
   filter: brightness(1.1);
 }
 
+.alpha-warning {
+  width: 100%;
+  text-align: center;
+  margin: 5px auto !important;
+  background-color: #ff3860;
+  color: white;
+}
+
+.alpha-warning strong {
+  color: white;
+}

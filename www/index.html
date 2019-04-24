@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="has-navbar-fixed-top">
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,16 +7,21 @@
     <title>Open-Registry</title>
     <link rel="stylesheet" href="./bulma.min.css">
     <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
   </head>
-  <body>
+  <body class="has-navbar-fixed-top">
     <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="./">
-          <img alt="Open-Registry Logo" src="./logo.png"/>
+          <img alt="Open-Registry Logo" src="./logo.png" width="38"/>
+        </a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navigation-bar">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </a>
       </div>
-
-      <div id="navbarBasicExample" class="navbar-menu">
+      <div id="navigation-bar" class="navbar-menu">
         <div class="navbar-start">
           <a class="navbar-item" href="./">
             Open-Registry
@@ -59,7 +64,7 @@
       <div class="hero-body">
         <div class="container">
           <article class="media" style="align-items: center;">
-            <figure class="media-left box">
+            <figure class="media-left box is-hidden-mobile">
               <p class="image">
               <img alt="Open-Registry Logo" src="./logo.png" />
               </p>
@@ -187,8 +192,11 @@
             <div class="tile is-ancestor">
               <div class="tile is-parent">
                 <div class="tile is-child">
+                  <div class="box is-paddingless is-small alpha-warning"><strong>Warning</strong>: Open-Registry
+                    as a project is in alpha so you might encounter issues
+                  </div>
                   <div>
-                    <pre class="box">
+                    <pre class="box" style="overflow-x: auto !important">
 <code><span class="has-text-grey"># To start using Open-Registry
 # Replace "npm" with your client (such as "yarn")</span>
 <strong>npm config set registry https://npm.open-registry.dev</strong>
@@ -397,5 +405,32 @@
             </div>
           </div>
         </section>
+    <section class="hero is-medium has-text-light" style="background-color: #253D5B">
+      <div class="hero-body">
+        <div class="container">
+          <article class="media" style="align-items: center;">
+            <figure class="media-left box is-hidden-mobile">
+              <p class="image">
+              <img alt="Open-Registry Logo" src="./logo.png" />
+              </p>
+            </figure>
+            <div class="media-content">
+              <div class="content">
+                <h1 class="title has-text-light">
+                  The Open-Registry
+                </h1>
+                <h4 class="subtitle has-text-light">
+                  A JavaScript Package Registry funded, developed and
+                  maintained by the community, for the community
+                </h4>
+                <a href="#get-started" class="button is-light has-text-white get-started-color">Get Started</a>
+                <a href="https://liberapay.com/open-registry-community" target="_blank" class="button is-info">Donate</a>
+                <a href="#contribute" class="button is-primary">Contribute</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
