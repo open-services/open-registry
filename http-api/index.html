@@ -88,6 +88,29 @@
     <a class="current" href="./">HTTP API</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#npm-compatible-api">NPM Compatible API</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#get-package">GET /:package</a></li>
+        
+            <li><a class="toctree-l3" href="#get-package-tarball">GET /:package/-/:tarball</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#open-registry-specific-endpoints">Open-Registry Specific Endpoints</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#get">GET /</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#graphql-api">GraphQL API</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -134,6 +157,24 @@
                 <blockquote>
 <p>Draft API Description</p>
 </blockquote>
+<h1 id="npm-compatible-api">NPM Compatible API</h1>
+<h2 id="get-package"><code>GET /:package</code></h2>
+<blockquote>
+<p>Example Request: <code>https://npm.open-registry.dev/bs58</code></p>
+</blockquote>
+<p>Returns the metadata for a specific package</p>
+<h2 id="get-package-tarball"><code>GET /:package/-/:tarball</code></h2>
+<blockquote>
+<p>Example Request: <code>https://npm.open-registry.dev/bs58/-/bs58-4.0.1.tgz</code></p>
+</blockquote>
+<p>Returns the tarball for a specific version</p>
+<h1 id="open-registry-specific-endpoints">Open-Registry Specific Endpoints</h1>
+<h2 id="get"><code>GET /</code></h2>
+<blockquote>
+<p>Example Request: <code>https://npm.open-registry.dev</code></p>
+</blockquote>
+<p>Returns a description of the current version of the registry</p>
+<h1 id="graphql-api">GraphQL API</h1>
               
             </div>
           </div>

@@ -72,7 +72,22 @@
     
         <ul>
         
-            <li><a class="toctree-l3" href="#services">Services</a></li>
+            <li><a class="toctree-l3" href="#goal-with-financing">Goal with Financing</a></li>
+        
+            <li><a class="toctree-l3" href="#treasurer">Treasurer</a></li>
+        
+            <li><a class="toctree-l3" href="#transparency">Transparency</a></li>
+        
+            <li><a class="toctree-l3" href="#payment-methods">Payment Methods</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#financing-api">Financing API</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#possible-services">Possible Services</a></li>
         
             <li><a class="toctree-l3" href="#metrics-to-include">Metrics to include</a></li>
         
@@ -145,10 +160,30 @@
             <div class="section">
               
                 <h1 id="financing">Financing</h1>
-<p>Right now, funding will be setup via LiberaPay. Under username <code>Open-Registry-Community</code></p>
-<p>Link: https://liberapay.com/Open-Registry-Community/</p>
-<p>Currently connected to Victor Bjelkholm's Stripe + Paypal and he will act as 
-treasurer until a better option appears.</p>
+<h2 id="goal-with-financing">Goal with Financing</h2>
+<p>As Open-Registry is a Open Service, one requirement is that the finances are
+open to public to inspect. The details will be visible both on the homepage
+and on the metrics dashboard, where people can drill down into the details if
+they so wish.</p>
+<h2 id="treasurer">Treasurer</h2>
+<blockquote>
+<p>For more details, see the document about Governance</p>
+</blockquote>
+<p>The Treasurer is elected by votes and is responsible for the donation pipeline
+and making sure expenses are paid.</p>
+<h2 id="transparency">Transparency</h2>
+<p>No funds should enter/leave the account without knowing where it comes from and
+where it's going. It should also be viewable by the public.</p>
+<h2 id="payment-methods">Payment Methods</h2>
+<p>Currently, funding happens via LiberaPay under the username <code>Open-Registry-Community</code>.</p>
+<p>https://liberapay.com/Open-Registry-Community/</p>
+<p>The LiberaPay account is connected with Stripe and PayPal and goes to the current
+treasurer who is responsible for payments.</p>
+<p>We hope to replace this with a OpenCollective in the future.</p>
+<h1 id="financing-api">Financing API</h1>
+<blockquote>
+<p>Notes for developers who implement the metrics API for financing</p>
+</blockquote>
 <p>https://liberapay.com/Open-Registry-Community/public.json outlines current funding</p>
 <p>curl -u 'user-id:password' https://robot-ws.your-server.de/server is currently running servers</p>
 <p>Get Traffic</p>
@@ -164,8 +199,8 @@ treasurer until a better option appears.</p>
 <p>Funding</p>
 <p>https://stripe.com/docs/api/payouts</p>
 <p>https://stripe.com/docs/api/balance</p>
-<h3 id="services">Services</h3>
-<p>The following services are to be connected to get the full picture</p>
+<h3 id="possible-services">Possible Services</h3>
+<p>The following services are to be connected to get the full picture of the financing</p>
 <ul>
 <li>Paypal - Actual incoming donations</li>
 <li>Stripe - Actual incoming donations</li>
