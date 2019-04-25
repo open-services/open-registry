@@ -2,9 +2,6 @@
 
 ## Open-Registry - Open JavaScript Module Registry
 
-Notice: This project is NOT ready to be shared + used yet. It's development just
-got started and right now we're working on setting up the governance properly
-
 Website: https://open-registry.dev
 
 Preliminary npm proxy: http://npm.open-registry.dev
