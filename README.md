@@ -4,7 +4,7 @@
 
 Website: https://open-registry.dev
 
-Preliminary npm proxy: http://npm.open-registry.dev
+Preliminary npm proxy: https://npm.open-registry.dev
 
 LiberaPay for donations: https://liberapay.com/open-registry-community
 
@@ -19,15 +19,15 @@ LiberaPay for donations: https://liberapay.com/open-registry-community
 
 ### Try it out
 
-Wanna see how it's performing? You can try it out by using `http://npm.open-registry.dev`
+Wanna see how it's performing? You can try it out by using `https://npm.open-registry.dev`
 as the `registry` config in your preferred client.
 
 ```
 # npm
-npm config set registry http://npm.open-registry.dev
+npm config set registry https://npm.open-registry.dev
 
 # yarn
-yarn config set registry http://npm.open-registry.dev
+yarn config set registry https://npm.open-registry.dev
 ```
 
 ### Why Open-Registry?
