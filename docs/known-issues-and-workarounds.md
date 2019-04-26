@@ -5,7 +5,7 @@ Open-registry is new and there are some known issues to be resolved.
 Currently if you run `npm audit` you will receive an error.
 
 ```bash
-/home/user npm audit
+$ npm audit
 npm ERR! code ENOAUDIT
 npm ERR! audit Your configured registry (https://npm.open-registry.dev/) does not support audit requests.
 
@@ -17,46 +17,46 @@ Possible solutions include proxying the audit requests to npm, or implement our 
 
 The NPM docs detail this process with respect to [configuration as an Enterprise user](https://docs.npmjs.com/configuring-your-registry-settings-as-an-npm-enterprise-user). Or you can simply follow our instructions here.
 
-1. Install npmrc if it's not already available
+1 - Install npmrc if it's not already available
 
-   ```bash
-   npm i npmrc -g
-   ```
+```bash
+npm i npmrc -g
+```
 
-2. Create a profile for the public NPM registry
+2 - Create a profile for the public NPM registry
 
-   ```bash
-    npmrc -c npm
-    npm config set registry https://registry.npmjs.com/
-   ```
+```bash
+npmrc -c npm
+npm config set registry https://registry.npmjs.com/
+```
 
-3. Create a second profile for the Open Registry
+3 - Create a second profile for the Open Registry
 
-   ```bash
-    npmrc -c open
-    npm config set registry https://npm.open-registry.dev
-   ```
+```bash
+npmrc -c open
+npm config set registry https://npm.open-registry.dev
+```
 
-4. Switch registries using the `npmrc profile-name` syntax. E.g. to switch to NPM to run an audit use:
+4 - Switch registries using the `npmrc profile-name` syntax. E.g. to switch to NPM to run an audit use:
 
-   ```bash
-   npmrc npm
-   npm audit
-   ```
+```bash
+npmrc npm
+npm audit
+```
 
-   And switch back to Open Registry for everything else with:
+And switch back to Open Registry for everything else with:
 
-   ```bash
-   npmrc open
-   ```
+```bash
+npmrc open
+```
 
-   Not sure which registry you have activated? Check by running `npmrc` by itself:
+Not sure which registry you have activated? Check by running `npmrc` by itself:
 
-   ```bash
-   /home/user npmrc
-   Available npmrcs:
+```bash
+$ npmrc
+Available npmrcs:
 
-   default
-   npm
-   * open
-   ```
+default
+npm
+* open
+```

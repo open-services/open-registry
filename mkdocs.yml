@@ -12,4 +12,5 @@ nav:
 - Metrics: metrics.md
 - Architecture: architecture.md
 - HTTP API: http-api.md
+- Known Issues & Workarounds: known-issues-and-workarounds.md
 - Alternatives to Open-Registry: alternatives.md
