@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Development environment - Open-Registry Documentation</title>
+  <title>Known Issues & Workarounds - Open-Registry Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Development environment";
-    var mkdocs_page_input_path = "development-environment.md";
+    var mkdocs_page_name = "Known Issues & Workarounds";
+    var mkdocs_page_input_path = "known-issues-and-workarounds.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -88,9 +88,15 @@
     <a class="" href="../http-api/">HTTP API</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../known-issues-and-workarounds/">Known Issues & Workarounds</a>
+    <a class="current" href="./">Known Issues & Workarounds</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#npm-audit">npm audit</a></li>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -120,10 +126,10 @@
     
       
     
-    <li>Development environment</li>
+    <li>Known Issues & Workarounds</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/open-services/open-registry/edit/master/docs/development-environment.md"
+        <a href="https://github.com/open-services/open-registry/edit/master/docs/known-issues-and-workarounds.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -133,27 +139,63 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="development-environment">Development Environment</h2>
-<p>Open-Registry is setup for interactive development sessions.</p>
-<p>This involves setting up your editor to connect to a running version of the
-application and making changes directly to it.</p>
-<p>The full environment can be setup by doing <code>docker-compose up</code>. This requires
-both docker and docker-compose to work properly.</p>
-<p>The nrepl will be running at the clojure containers port <code>33333</code> and it uses
-the following startup command:</p>
-<pre><code>lein repl :headless :start :host 0.0.0.0 :port 33333
+                <p>Open-registry is new and there are some known issues to be resolved.</p>
+<h2 id="npm-audit">npm audit</h2>
+<p>Currently if you run <code>npm audit</code> you will receive an error.</p>
+<pre><code class="bash">$ npm audit
+npm ERR! code ENOAUDIT
+npm ERR! audit Your configured registry (https://npm.open-registry.dev/) does not support audit requests.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/user/.npm/_logs/2019-04-26T16_38_53_880Z-debug.log
 </code></pre>
 
-<p>Get the IP of the container with the following command:</p>
-<pre><code>docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps | grep -i clojure | cut -d ' ' -f 1)
+<p>Possible solutions include proxying the audit requests to npm, or implement our own. We are weighing the pros and cons and will update our roadmap accordingly. Meanwhile a workaround can be achieved by using npmrc to configure multiple profiles, with one profile pointing back to NPMs registry for audit purposes.</p>
+<p>The NPM docs detail this process with respect to <a href="https://docs.npmjs.com/configuring-your-registry-settings-as-an-npm-enterprise-user">configuration as an Enterprise user</a>. Or you can simply follow our instructions here.</p>
+<p>1 - Install npmrc if it's not already available</p>
+<pre><code class="bash">npm i npmrc -g
 </code></pre>
 
-<pre><code>172.24.0.4 open-registry.dev docs.open-registry.dev npm.open-registry.dev metrics.open-registry.dev ipfs.open-registry.dev docs.open-registry.dev dashboard.open-registry.dev
+<p>2 - Create a profile for the public NPM registry</p>
+<pre><code class="bash">npmrc -c npm
+npm config set registry https://registry.npmjs.com/
+</code></pre>
+
+<p>3 - Create a second profile for the Open Registry</p>
+<pre><code class="bash">npmrc -c open
+npm config set registry https://npm.open-registry.dev
+</code></pre>
+
+<p>4 - Switch registries using the <code>npmrc profile-name</code> syntax. E.g. to switch to NPM to run an audit use:</p>
+<pre><code class="bash">npmrc npm
+npm audit
+</code></pre>
+
+<p>And switch back to Open Registry for everything else with:</p>
+<pre><code class="bash">npmrc open
+</code></pre>
+
+<p>Not sure which registry you have activated? Check by running <code>npmrc</code> by itself:</p>
+<pre><code class="bash">$ npmrc
+Available npmrcs:
+
+default
+npm
+* open
 </code></pre>
               
             </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../alternatives/" class="btn btn-neutral float-right" title="Alternatives to Open-Registry">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../http-api/" class="btn btn-neutral" title="HTTP API"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -181,6 +223,10 @@ the following startup command:</p>
           <a href="https://github.com/open-services/open-registry/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
+        <span><a href="../http-api/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../alternatives/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
