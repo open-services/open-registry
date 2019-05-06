@@ -1,0 +1,63 @@
+# Probably should be using https://github.com/lucaslorentz/caddy-docker-proxy
+# or similar
+
+(default-opts) {
+  tls off
+  gzip
+  log stdout {
+    ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+  }
+  errors stderr
+  prometheus {
+    address 0.0.0.0:9180
+  }
+}
+
+open-registry.test {
+  import default-opts
+  proxy / http://ipfs:8080 {
+    transparent
+  }
+}
+
+npm.open-registry.test {
+  import default-opts
+  proxy / http://app:5432 {
+    transparent
+  }
+}
+
+metrics.open-registry.test {
+  import default-opts
+  proxy / http://metrics:9090 {
+    transparent
+  }
+}
+
+ipfs.open-registry.test {
+  import default-opts
+  proxy / http://ipfs:8080 {
+    transparent
+  }
+}
+
+docs.open-registry.test {
+  import default-opts
+  proxy / http://ipfs:8080 {
+    transparent
+  }
+}
+
+dashboard.open-registry.test {
+  import default-opts
+  proxy / http://dashboard:3000 {
+    transparent
+  }
+}
+
+finance.open-registry.test {
+  import default-opts
+  proxy / http://finance:6000 {
+    transparent
+  }
+}

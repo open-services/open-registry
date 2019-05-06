@@ -1,64 +1,41 @@
+# Production version of Caddyfile
 open-registry.dev {
-  tls off
   gzip
-  prometheus {
-    address 0.0.0.0:9180
-  }
   proxy / http://ipfs:8080 {
     transparent
   }
 }
 
 npm.open-registry.dev {
-  tls off
   gzip
-  prometheus {
-    address 0.0.0.0:9180
-  }
   proxy / http://app:5432 {
     transparent
   }
 }
 
 metrics.open-registry.dev {
-  tls off
   gzip
-  prometheus {
-    address 0.0.0.0:9180
-  }
   proxy / http://metrics:9090 {
     transparent
   }
 }
 
 ipfs.open-registry.dev {
-  tls off
   gzip
-  prometheus {
-    address 0.0.0.0:9180
-  }
   proxy / http://ipfs:8080 {
     transparent
   }
 }
 
 docs.open-registry.dev {
-  tls off
   gzip
-  prometheus {
-    address 0.0.0.0:9180
-  }
   proxy / http://ipfs:8080 {
     transparent
   }
 }
 
 dashboard.open-registry.dev {
-  tls off
   gzip
-  prometheus {
-    address 0.0.0.0:9180
-  }
   proxy / http://dashboard:3000 {
     transparent
   }
