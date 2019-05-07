@@ -8,3 +8,13 @@ services:
   metrics:
     volumes:
       - ./infra/prometheus-production.yml:/prometheus.yml
+  ipfs:
+    # TODO should also set Gateway.NoFetch true
+    cmd: daemon --init --init-profile=server
+  front:
+    ports:
+      - 80:80
+      - 443:443
+      - 9180:9180
+    volumes:
+      - ./infra/grafana/config-production.ini:/etc/grafana/grafana.ini
