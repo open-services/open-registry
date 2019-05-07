@@ -19,7 +19,7 @@ services:
       - 443:443
       - 9180:9180
     volumes:
-      - ./infra/caddy/Caddyfile:/etc/Caddyfile
+      - ./infra/caddy/Caddyfile.production:/etc/Caddyfile
       - caddy:/root/.caddy
   dashboard:
     volumes:

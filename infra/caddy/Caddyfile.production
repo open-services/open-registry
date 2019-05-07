@@ -11,49 +11,49 @@
   }
 }
 
-open-registry.test {
+open-registry.dev {
   import default-opts
   proxy / http://ipfs:8080 {
     transparent
   }
 }
 
-npm.open-registry.test {
+npm.open-registry.dev {
   import default-opts
   proxy / http://app:5432 {
     transparent
   }
 }
 
-metrics.open-registry.test {
+metrics.open-registry.dev {
   import default-opts
   proxy / http://metrics:9090 {
     transparent
   }
 }
 
-ipfs.open-registry.test {
+ipfs.open-registry.dev {
   import default-opts
   proxy / http://ipfs:8080 {
     transparent
   }
 }
 
-docs.open-registry.test {
+docs.open-registry.dev {
   import default-opts
   proxy / http://ipfs:8080 {
     transparent
   }
 }
 
-dashboard.open-registry.test {
+dashboard.open-registry.dev {
   import default-opts
   proxy / http://dashboard:3000 {
     transparent
   }
 }
 
-finance.open-registry.test {
+finance.open-registry.dev {
   import default-opts
   proxy / http://finance:6000 {
     transparent
