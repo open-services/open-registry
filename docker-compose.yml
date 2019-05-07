@@ -48,7 +48,7 @@ services:
       - grafana:/var/lib/grafana
       - ./infra/grafana/:/etc/grafana/provisioning
   finance:
-    image: open-services/finance-watch
+    image: openregistry/finance-watch:0.1.0
     environment:
       - ADDRESS=0.0.0.0
       - PORT=6000
