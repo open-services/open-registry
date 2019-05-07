@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+  app:
+    command: lein run
+    environment:
+      - REGISTRY_URL=https://npm.open-registry.dev
+      - SERVER_DEV=false
+  metrics:
+    volumes:
+      - ./infra/prometheus-production.yml:/prometheus.yml
