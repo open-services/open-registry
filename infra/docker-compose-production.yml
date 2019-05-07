@@ -9,10 +9,14 @@ services:
       - IPFS_API=/ip4/ipfs/tcp/5001
       - REGISTRY_URL=https://npm.open-registry.dev
       - SERVER_DEV=false
+    restart: always
   metrics:
     volumes:
       - prometheus:/prometheus
       - ./infra/prometheus-production.yml:/prometheus.yml
+    restart: always
+  ipfs:
+    restart: always
   front:
     ports:
       - 80:80
@@ -21,8 +25,12 @@ services:
     volumes:
       - ./infra/caddy/Caddyfile.production:/etc/Caddyfile
       - caddy:/root/.caddy
+    restart: always
   dashboard:
     volumes:
       - ./infra/grafana/config-production.ini:/etc/grafana/grafana.ini
       - grafana:/var/lib/grafana
       - ./infra/grafana/:/etc/grafana/provisioning
+    restart: always
+  finance:
+    restart: always
