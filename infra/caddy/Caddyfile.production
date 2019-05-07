@@ -11,13 +11,6 @@
   }
 }
 
-open-registry.dev {
-  import default-opts
-  proxy / http://ipfs:8080 {
-    transparent
-  }
-}
-
 npm.open-registry.dev {
   import default-opts
   proxy / http://app:5432 {
@@ -32,30 +25,9 @@ metrics.open-registry.dev {
   }
 }
 
-ipfs.open-registry.dev {
-  import default-opts
-  proxy / http://ipfs:8080 {
-    transparent
-  }
-}
-
-docs.open-registry.dev {
-  import default-opts
-  proxy / http://ipfs:8080 {
-    transparent
-  }
-}
-
 dashboard.open-registry.dev {
   import default-opts
   proxy / http://dashboard:3000 {
-    transparent
-  }
-}
-
-finance.open-registry.dev {
-  import default-opts
-  proxy / http://finance:6000 {
     transparent
   }
 }
