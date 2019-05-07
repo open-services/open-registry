@@ -3,18 +3,26 @@ services:
   app:
     command: lein run
     environment:
+      - PORT=5432
+      - METRICS_PORT=2345
+      - SERVER_THREADS=16
+      - IPFS_API=/ip4/ipfs/tcp/5001
       - REGISTRY_URL=https://npm.open-registry.dev
       - SERVER_DEV=false
   metrics:
     volumes:
+      - prometheus:/prometheus
       - ./infra/prometheus-production.yml:/prometheus.yml
-  ipfs:
-    # TODO should also set Gateway.NoFetch true
-    cmd: daemon --init --init-profile=server
   front:
     ports:
       - 80:80
       - 443:443
       - 9180:9180
     volumes:
+      - ./infra/caddy/Caddyfile:/etc/Caddyfile
+      - caddy:/root/.caddy
+  dashboard:
+    volumes:
       - ./infra/grafana/config-production.ini:/etc/grafana/grafana.ini
+      - grafana:/var/lib/grafana
+      - ./infra/grafana/:/etc/grafana/provisioning
