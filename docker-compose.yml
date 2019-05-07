@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   app:
-    image: clojure:openjdk-8-lein
+    image: openregistry/open-registry:0.1.0
     working_dir: /app
     volumes:
       - .:/app
