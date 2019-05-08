@@ -15,103 +15,57 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 1,
   "links": [],
   "panels": [
     {
-      "collapsed": false,
+      "content": "![](https://open-registry.dev/logo.png)",
       "gridPos": {
-        "h": 1,
-        "w": 24,
+        "h": 4,
+        "w": 2,
         "x": 0,
         "y": 0
       },
-      "id": 14,
-      "panels": [],
-      "title": "Finance",
-      "type": "row"
-    },
-    {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
-      "format": "none",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 2,
-        "x": 0,
-        "y": 1
-      },
-      "id": 10,
-      "interval": null,
+      "id": 34,
       "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
-      "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "pluginVersion": "6.1.4",
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": true
-      },
-      "tableColumn": "",
+      "mode": "markdown",
       "targets": [
         {
-          "expr": "open_registry_backers_count",
+          "expr": "",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A"
         }
       ],
-      "thresholds": "",
       "timeFrom": null,
       "timeShift": null,
-      "title": "Backers",
-      "type": "singlestat",
-      "valueFontSize": "80%",
-      "valueMaps": [
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "content": "\n# Open-Registry Dashboard\n\nWelcome to the Open-Registry Dashboard. Here you can find all the public information about the running infrastructure. If you have any questions, please open a issue in the [GitHub repository for Open-Registry](https://github.com/open-services/open-registry)\n\n\n",
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 2,
+        "y": 0
+      },
+      "id": 32,
+      "links": [],
+      "mode": "markdown",
+      "targets": [
         {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
+          "expr": "",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "refId": "A"
         }
       ],
-      "valueName": "current"
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "transparent": true,
+      "type": "text"
     },
     {
       "cacheTimeout": null,
@@ -132,10 +86,10 @@
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 3,
-        "w": 2,
-        "x": 2,
-        "y": 1
+        "h": 4,
+        "w": 3,
+        "x": 6,
+        "y": 0
       },
       "id": 11,
       "interval": null,
@@ -184,7 +138,8 @@
       "thresholds": "",
       "timeFrom": null,
       "timeShift": null,
-      "title": "Balance",
+      "title": "Current Balance",
+      "transparent": true,
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -215,10 +170,10 @@
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 3,
-        "w": 2,
-        "x": 4,
-        "y": 1
+        "h": 4,
+        "w": 3,
+        "x": 9,
+        "y": 0
       },
       "id": 12,
       "interval": null,
@@ -268,6 +223,90 @@
       "timeFrom": null,
       "timeShift": null,
       "title": "Yearly Income",
+      "transparent": true,
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 12,
+        "y": 0
+      },
+      "id": 10,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "pluginVersion": "6.1.4",
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "open_registry_backers_count",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Backers",
+      "transparent": true,
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -328,14 +367,14 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "app_metadata_cached",
+          "expr": "rate(app_metadata_cached[1m])",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "Serve from cache",
           "refId": "B"
         },
         {
-          "expr": "app_metadata_fetch_npm",
+          "expr": "rate(app_metadata_fetch_npm[1m])",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "Fetch from npm",
@@ -346,7 +385,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Metadata",
+      "title": "Metadata (per minute)",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -419,14 +458,14 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "app_tarball_cached",
+          "expr": "rate(app_tarball_cached[1m])",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "Serve from cache",
           "refId": "B"
         },
         {
-          "expr": "app_tarball_fetch_npm",
+          "expr": "rate(app_tarball_fetch_npm[1m])",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "Fetch from npm",
@@ -437,7 +476,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Tarballs",
+      "title": "Tarballs (per minute)",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -475,12 +514,194 @@
       }
     },
     {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 13
+      },
+      "id": 20,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "rate(app_change_feed_skip[1m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Skipped update",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(app_change_feed_update[1m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Updated metadata",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Updates received from npm reigistry (per minute)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "cacheTimeout": null,
+      "dashLength": 10,
+      "dashes": false,
+      "fill": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 13
+      },
+      "id": 22,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": true,
+        "hideEmpty": true,
+        "hideZero": true,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pluginVersion": "6.1.4",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "up",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{ job}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Uptime Monitor",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 0,
+          "format": "short",
+          "label": "Up",
+          "logBase": 1,
+          "max": "1",
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
       "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 13
+        "y": 21
       },
       "id": 18,
       "panels": [],
@@ -497,7 +718,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 14
+        "y": 22
       },
       "id": 8,
       "legend": {
@@ -523,7 +744,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "caddy_http_request_count_total",
+          "expr": "rate(caddy_http_request_count_total[1m])",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "{{ host }}",
@@ -534,7 +755,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Total HTTP Requests",
+      "title": "Total HTTP Requests (per minute)",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -588,7 +809,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 14
+        "y": 22
       },
       "heatmap": {},
       "hideZeroBuckets": true,
@@ -601,7 +822,7 @@
       "reverseYBuckets": false,
       "targets": [
         {
-          "expr": "sum(increase(caddy_http_request_duration_seconds_bucket{host=\"npm.open-registry.dev\"}[10m])) by (le)",
+          "expr": "sum(increase(caddy_http_request_duration_seconds_bucket[10m])) by (le)",
           "format": "heatmap",
           "instant": false,
           "interval": "1m",
@@ -650,7 +871,7 @@
         "h": 9,
         "w": 6,
         "x": 0,
-        "y": 22
+        "y": 30
       },
       "id": 2,
       "interval": null,
@@ -669,7 +890,7 @@
           "expr": "caddy_http_request_count_total",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{ host }}",
+          "legendFormat": "{{ host }}/{{proto}}",
           "refId": "A"
         }
       ],
@@ -678,9 +899,151 @@
       "title": "HTTP Requests",
       "type": "grafana-piechart-panel",
       "valueName": "current"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 39
+      },
+      "id": 24,
+      "panels": [],
+      "title": "IPFS",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "fill": 1,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 40
+      },
+      "id": 26,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum(ipfs_p2p_peers_total)",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Connected Peers",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Connected Peers",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 8,
+        "w": 7,
+        "x": 12,
+        "y": 40
+      },
+      "id": 28,
+      "interval": null,
+      "legend": {
+        "percentage": true,
+        "percentageDecimals": 0,
+        "show": true,
+        "values": true
+      },
+      "legendType": "Right side",
+      "links": [],
+      "maxDataPoints": 3,
+      "nullPointMode": "connected",
+      "pieType": "pie",
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "expr": "ipfs_p2p_peers_total",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{transport}}",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Peers by Transport",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
     }
   ],
-  "refresh": "5s",
+  "refresh": false,
   "schemaVersion": 18,
   "style": "dark",
   "tags": [],
@@ -688,8 +1051,8 @@
     "list": []
   },
   "time": {
-    "from": "now-15m",
-    "to": "now"
+    "from": "2019-05-08T11:19:04.512Z",
+    "to": "2019-05-08T11:22:23.243Z"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -719,5 +1082,5 @@
   "timezone": "",
   "title": "General",
   "uid": "7SmAxSzZz",
-  "version": 1
+  "version": 3
 }
