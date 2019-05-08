@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   app:
-    image: openregistry/open-registry:0.1.0
+    image: openregistry/open-registry:0.1.1
     working_dir: /app
     volumes:
       - .:/app
