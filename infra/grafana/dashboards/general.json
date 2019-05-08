@@ -129,7 +129,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "open_registry_balance / 100",
+          "expr": "open_registry_balance{job=\"finance\"} / 100",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A"
@@ -213,7 +213,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "open_registry_yearly_income / 100",
+          "expr": "open_registry_yearly_income{job=\"finance\"} / 100",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A"
@@ -296,7 +296,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "open_registry_backers_count",
+          "expr": "open_registry_backers_count{job=\"finance\"} + open_registry_contributors_count{job=\"finance\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A"
@@ -722,13 +722,15 @@
       },
       "id": 8,
       "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
         "min": false,
+        "rightSide": true,
         "show": true,
         "total": false,
-        "values": false
+        "values": true
       },
       "lines": true,
       "linewidth": 1,
@@ -744,10 +746,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(caddy_http_request_count_total[1m])",
+          "expr": "rate(caddy_http_request_count_total{job=\"front\"}[1m])",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{ host }}",
+          "legendFormat": "{{ host }}/http-{{proto}}",
           "refId": "A"
         }
       ],
@@ -868,7 +870,7 @@
       "fontSize": "80%",
       "format": "short",
       "gridPos": {
-        "h": 9,
+        "h": 6,
         "w": 6,
         "x": 0,
         "y": 30
@@ -887,10 +889,10 @@
       "strokeWidth": 1,
       "targets": [
         {
-          "expr": "caddy_http_request_count_total",
+          "expr": "caddy_http_request_count_total{job=\"front\"}",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{ host }}/{{proto}}",
+          "legendFormat": "{{ host }}/http-{{proto}}",
           "refId": "A"
         }
       ],
@@ -901,12 +903,101 @@
       "valueName": "current"
     },
     {
+      "aliasColors": {},
+      "bars": false,
+      "cacheTimeout": null,
+      "dashLength": 10,
+      "dashes": false,
+      "fill": 1,
+      "gridPos": {
+        "h": 6,
+        "w": 18,
+        "x": 6,
+        "y": 30
+      },
+      "id": 35,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "hideEmpty": true,
+        "hideZero": true,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "rate(caddy_http_response_status_count_total{job=\"front\"}[1m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{host }}/http-{{proto }} Status: {{status}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Status Codes (per minute)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
       "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 39
+        "y": 36
       },
       "id": 24,
       "panels": [],
@@ -923,7 +1014,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 40
+        "y": 37
       },
       "id": 26,
       "legend": {
@@ -1011,7 +1102,7 @@
         "h": 8,
         "w": 7,
         "x": 12,
-        "y": 40
+        "y": 37
       },
       "id": 28,
       "interval": null,
@@ -1043,7 +1134,7 @@
       "valueName": "current"
     }
   ],
-  "refresh": false,
+  "refresh": "5s",
   "schemaVersion": 18,
   "style": "dark",
   "tags": [],
@@ -1051,8 +1142,8 @@
     "list": []
   },
   "time": {
-    "from": "2019-05-08T11:19:04.512Z",
-    "to": "2019-05-08T11:22:23.243Z"
+    "from": "now-15m",
+    "to": "now"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -1082,5 +1173,5 @@
   "timezone": "",
   "title": "General",
   "uid": "7SmAxSzZz",
-  "version": 3
+  "version": 4
 }
