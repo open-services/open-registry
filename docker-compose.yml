@@ -25,7 +25,8 @@ services:
     command: --config.file=/prometheus.yml --storage.tsdb.path=/prometheus
     restart: always
   ipfs:
-    image: ipfs/go-ipfs:v0.4.19
+    build:
+      context: ./infra/go-ipfs
     environment:
       - IPFS_PROFILE=server,badgerds
     volumes:
