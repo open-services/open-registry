@@ -27,7 +27,7 @@ else
     *) INIT_ARGS="--profile=$IPFS_PROFILE" ;;
   esac
   ipfs init $INIT_ARGS
-  ipfs config --json Addresses.Swarm '["/ip4/0.0.0/tcp/4001", "/ip4/0.0.0.0/tcp/4002/ws", "/ip4/0.0.0.0/tcp/4003/quic", "/ip6/::/tcp/4001", "/ip6/::/tcp/4002/ws", "/ip6/::/tcp/4003/quic"]'
+  ipfs config --json Addresses.Swarm '["/ip4/0.0.0.0/tcp/4001", "/ip4/0.0.0.0/tcp/4002/ws", "/ip4/0.0.0.0/tcp/4003/quic", "/ip6/::/tcp/4001", "/ip6/::/tcp/4002/ws", "/ip6/::/tcp/4003/quic"]'
   ipfs config Addresses.API "/ip4/0.0.0.0/tcp/5001"
   ipfs config Addresses.Gateway "/ip4/0.0.0.0/tcp/8080"
   ipfs config --json Swarm.ConnMgr.HighWater 2000
