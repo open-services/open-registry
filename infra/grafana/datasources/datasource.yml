@@ -8,6 +8,7 @@ datasources:
   access: proxy
   orgId: 1
   url: http://metrics:9090
+  # url: https://metrics.open-registry.dev
   jsonData:
      timeInterval: "1s"
   isDefault: true
