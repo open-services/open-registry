@@ -1,9 +1,0 @@
-global:
-  scrape_interval: 1s
-
-scrape_configs:
-  - job_name: 'application'
-    metrics_path: '/metrics'
-
-    static_configs:
-      - targets: ['app:2345', 'front:9180']

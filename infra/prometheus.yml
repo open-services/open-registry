@@ -1,0 +1,23 @@
+global:
+  scrape_interval: 1s
+
+scrape_configs:
+  - job_name: 'application'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['app:2345']
+
+  - job_name: 'ipfs'
+    metrics_path: '/debug/metrics/prometheus'
+    static_configs:
+      - targets: ['ipfs:5001']
+
+  - job_name: 'front'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['front:9180']
+
+  - job_name: 'finance'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['finance:6000']

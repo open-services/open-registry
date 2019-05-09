@@ -1,0 +1,33 @@
+# Production version of Caddyfile
+(default-opts) {
+  tls letsencrypt@open-registry.dev
+  gzip
+  log stdout {
+    ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+  }
+  errors stderr
+  prometheus {
+    address 0.0.0.0:9180
+  }
+}
+
+npm.open-registry.dev {
+  import default-opts
+  proxy / http://app:5432 {
+    transparent
+  }
+}
+
+metrics.open-registry.dev {
+  import default-opts
+  proxy / http://metrics:9090 {
+    transparent
+  }
+}
+
+dashboard.open-registry.dev {
+  import default-opts
+  proxy / http://dashboard:3000 {
+    transparent
+  }
+}

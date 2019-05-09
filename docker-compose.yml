@@ -1,14 +1,13 @@
 version: "3.7"
 services:
   app:
-    image: clojure:openjdk-8-lein
+    build:
+      context: .
     working_dir: /app
     volumes:
       - .:/app
       - lein-deps:/root/.m2
-    # TODO currently missing repl connection
-    # command: lein repl :headless :start :host 0.0.0.0 :port 33333
-    command: lein run
+    command: lein repl :headless :start :host 0.0.0.0 :port 33333
     ports:
       - 9010:9010
     environment:
@@ -16,42 +15,56 @@ services:
       - METRICS_PORT=2345
       - SERVER_THREADS=16
       - IPFS_API=/ip4/ipfs/tcp/5001
-      - REGISTRY_URL=http://npm.open-registry.dev:2015
+      - REGISTRY_URL=http://npm.open-registry.test:2015
       - SERVER_DEV=true
+    restart: always
   metrics:
     image: prom/prometheus:v2.9.1
     volumes:
       - prometheus:/prometheus
-      - ./prometheus.yml:/prometheus.yml
+      - ./infra/prometheus.yml:/prometheus.yml
     command: --config.file=/prometheus.yml --storage.tsdb.path=/prometheus
+    restart: always
   ipfs:
-    image: ipfs/go-ipfs:v0.4.19
+    build:
+      context: ./infra/go-ipfs
+    environment:
+      - IPFS_PROFILE=server,badgerds
+    volumes:
+      - ipfs:/data/ipfs
+    restart: always
   front:
-    #image: abiosoft/caddy:0.11.5
-    # TODO currently custom built image
-    # docker build --build-arg plugins=prometheus,cache \
-    # github.com/abiosoft/caddy-docker.git -t caddy-prometheus
-    image: caddy-prometheus
+    build:
+      context: ./infra/caddy
     ports:
       - 2015:2015
       - 9180:9180
     volumes:
-      - ./Caddyfile:/etc/Caddyfile
+      - ./infra/caddy/Caddyfile:/etc/Caddyfile
       - caddy:/root/.caddy
+    restart: always
   dashboard:
     image: grafana/grafana:6.1.4
-    # grafana-piechart-panel
     environment:
       - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-piechart-panel
     ports:
       - 3000:3000
     volumes:
-      - ./grafana/config.ini:/etc/grafana/grafana.ini
+      - ./infra/grafana/config.ini:/etc/grafana/grafana.ini
       - grafana:/var/lib/grafana
-      - ./grafana/:/etc/grafana/provisioning
-
+      - ./infra/grafana/:/etc/grafana/provisioning
+    restart: always
+  finance:
+    image: openregistry/finance-watch:0.1.0
+    environment:
+      - ADDRESS=0.0.0.0
+      - PORT=6000
+    ports:
+      - 6000:6000
+    restart: always
 volumes:
   prometheus:
   lein-deps:
   caddy:
   grafana:
+  ipfs:
