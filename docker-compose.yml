@@ -32,6 +32,8 @@ services:
       - IPFS_PROFILE=server,badgerds
     volumes:
       - ipfs:/data/ipfs
+    ports:
+      - 4001:4001
     restart: always
   front:
     build:
