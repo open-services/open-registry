@@ -32,9 +32,9 @@ else
   ipfs config Addresses.Gateway "/ip4/0.0.0.0/tcp/8080"
   ipfs config --json Swarm.ConnMgr.HighWater 2000
   ipfs config --json Swarm.ConnMgr.LowWater 1500
-  ipfs config --json Swarm.EnableAutoNATService true
-  ipfs config --json Swarm.EnableAutoRelay true
-  ipfs config --json Swarm.EnableRelayHop true
+  ipfs config --json Swarm.EnableAutoNATService false
+  ipfs config --json Swarm.EnableAutoRelay false
+  ipfs config --json Swarm.EnableRelayHop false
   ipfs config --json Gateway.NoFetch true
   ipfs config --json Experimental.QUIC true
   ipfs config --json Experimental.ShardingEnabled true
