@@ -38,7 +38,7 @@
                                              (re-pattern replicate-url)
                                              registry-url)]
         (future (metrics/increase :app/metadata-fetch-npm))
-        (write api-multiaddr path new-body)
+        (future (write api-multiaddr path new-body))
         (-> res
             (dissoc :headers)
             (assoc :body new-body))))))
@@ -54,7 +54,7 @@
       (serve-cached-tarball path)
       (let [res (http2/get url {:as :byte-array})]
         (future (metrics/increase :app/tarball-fetch-npm))
-        (write api-multiaddr path (:body res))
+        (future (write api-multiaddr path (:body res)))
         (java.io.ByteArrayInputStream. (:body res))))))
 
 (defn tarball-handler [package-name tarball]
