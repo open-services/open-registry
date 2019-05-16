@@ -17,6 +17,7 @@ services:
       - IPFS_API=/ip4/ipfs/tcp/5001
       - REGISTRY_URL=http://npm.open-registry.test:2015
       - SERVER_DEV=true
+      - UPDATE_ON_BOOT=false
     restart: always
   metrics:
     image: prom/prometheus:v2.9.1

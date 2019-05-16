@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   app:
-    image: openregistry/open-registry:0.1.2
+    image: openregistry/open-registry:0.1.3
     command: lein run
     environment:
       - PORT=5432
@@ -10,6 +10,7 @@ services:
       - IPFS_API=/ip4/ipfs/tcp/5001
       - REGISTRY_URL=https://npm.open-registry.dev
       - SERVER_DEV=false
+      - UPDATE_ON_BOOT=true
     restart: always
   metrics:
     volumes:
