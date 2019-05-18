@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   app:
-    image: openregistry/open-registry:0.1.3
+    image: openregistry/open-registry:0.1.5
     command: lein run
     environment:
       - PORT=5432

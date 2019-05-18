@@ -58,7 +58,7 @@ services:
       - ./infra/grafana/:/etc/grafana/provisioning
     restart: always
   finance:
-    image: openregistry/finance-watch:0.1.0
+    image: openregistry/finance-watch:0.1.1
     environment:
       - ADDRESS=0.0.0.0
       - PORT=6000
