@@ -51,14 +51,11 @@
   (let [pkgs (get-all-installed-packages)
         updated (atom 0)
         t (count pkgs)]
-    (add-watch updated nil (fn [_ _ _ _]
-                             (println (format "[boot-update] %s/%s" @updated t))))
-    (doall (pmap (fn [pkg]
-                   (do
-                     (http/metadata-handler pkg true)
-                     (swap! updated inc)
-                     nil))
-                 pkgs))))
+    (doseq [pkg pkgs]
+      (http/metadata-handler pkg true)
+      (swap! updated inc)
+      (println (format "[boot-update] %s/%s" @updated t)))
+    (println "[boot-update] done!")))
 
 (comment
   (get-all-installed-packages)
@@ -73,7 +70,7 @@
         update-on-boot? (Boolean/parseBoolean (or (System/getenv "UPDATE_ON_BOOT") "false"))]
     ;; TODO should schedule this once a day or something, to make sure we don't
     ;; miss updates from the polling/streaming
-    (if update-on-boot?
+    (when update-on-boot?
       (future (update-all-packages)))
     (update-metadata-for-existing-packages)
     (http/start-server port threads in-dev?)
