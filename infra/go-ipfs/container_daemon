@@ -30,8 +30,8 @@ else
   ipfs config --json Addresses.Swarm '["/ip4/0.0.0.0/tcp/4001", "/ip4/0.0.0.0/tcp/4002/ws", "/ip4/0.0.0.0/udp/4003/quic", "/ip6/::/tcp/4001", "/ip6/::/tcp/4002/ws", "/ip6/::/udp/4003/quic"]'
   ipfs config Addresses.API "/ip4/0.0.0.0/tcp/5001"
   ipfs config Addresses.Gateway "/ip4/0.0.0.0/tcp/8080"
-  ipfs config --json Swarm.ConnMgr.HighWater 2000
-  ipfs config --json Swarm.ConnMgr.LowWater 1500
+  ipfs config --json Swarm.ConnMgr.HighWater 5000
+  ipfs config --json Swarm.ConnMgr.LowWater 2500
   ipfs config --json Swarm.EnableAutoNATService false
   ipfs config --json Swarm.EnableAutoRelay false
   ipfs config --json Swarm.EnableRelayHop false
