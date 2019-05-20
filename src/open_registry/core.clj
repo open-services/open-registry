@@ -14,18 +14,24 @@
       (uncaughtException [_ thread ex]
         (log/error ex "Uncaught exception on" (.getName thread))))))
 
+(defn handle-change-error [ex]
+  (log/error ex))
+
 (defn handle-change [package-name]
-  (let [path (format "/npmjs.org/%s/metadata.json" package-name)
-        exists? (path-exists? http/api-multiaddr path)]
-    (log/infof "[received update] %s" package-name)
-    (when exists?
-      ;; TODO seems sometimes npm are not up-to-date with their own registry
-      ;; as too quick requests can give us old information, even though the
-      ;; replication server told us there was a change
-      (http/metadata-handler package-name true))
-    (if exists?
-      (future (metrics/increase :app/change-feed-update))
-      (future (metrics/increase :app/change-feed-skip)))))
+  (if (:error? package-name)
+    (handle-change-error (:exception package-name))
+    ;; handle error
+    (let [path (format "/npmjs.org/%s/metadata.json" package-name)
+          exists? (path-exists? http/api-multiaddr path)]
+      (log/infof "[received update] %s" package-name)
+      (when exists?
+        ;; TODO seems sometimes npm are not up-to-date with their own registry
+        ;; as too quick requests can give us old information, even though the
+        ;; replication server told us there was a change
+        (http/metadata-handler package-name true))
+      (if exists?
+        (future (metrics/increase :app/change-feed-update))
+        (future (metrics/increase :app/change-feed-skip))))))
 
 ;; Listens for changes to the npm registry and updates the metadata for
 ;; packages that already exists in our cache
