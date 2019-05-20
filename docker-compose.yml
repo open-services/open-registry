@@ -35,6 +35,7 @@ services:
       - ipfs:/data/ipfs
     ports:
       - 4001:4001
+    command: daemon --offline
     restart: always
   front:
     build:
