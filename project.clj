@@ -12,7 +12,8 @@
                  [open-services/npm-registry-follow "1.1.0"]
                  [io.prometheus/simpleclient_hotspot "0.6.0"]
                  [org.clojure/data.json "0.2.6"]
-                 [iapetos "0.1.8"]]
+                 [iapetos "0.1.8"]
+                 [org.clojure/tools.logging "0.4.1"]]
   ;; Only to be used in dev for profiling etc
   ;; :jvm-opts ["-Dcom.sun.management.jmxremote"
   ;;            "-Dcom.sun.management.jmxremote.port=9010"

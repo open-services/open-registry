@@ -4,13 +4,20 @@
             [ipfs-api.files :refer [write read path-exists? ls]]
             [npm-registry-follow.core :refer [poll-for-changes]]
             [open-registry.http :as http]
-            [open-registry.metrics :as metrics])
+            [open-registry.metrics :as metrics]
+            [clojure.tools.logging :as log])
   (:gen-class))
+
+(defn setup-exception-handler []
+  (Thread/setDefaultUncaughtExceptionHandler
+    (reify Thread$UncaughtExceptionHandler
+      (uncaughtException [_ thread ex]
+        (log/error ex "Uncaught exception on" (.getName thread))))))
 
 (defn handle-change [package-name]
   (let [path (format "/npmjs.org/%s/metadata.json" package-name)
         exists? (path-exists? http/api-multiaddr path)]
-    (println (str "[received update] " package-name))
+    (log/infof "[received update] %s" package-name)
     (when exists?
       ;; TODO seems sometimes npm are not up-to-date with their own registry
       ;; as too quick requests can give us old information, even though the
@@ -23,7 +30,7 @@
 ;; Listens for changes to the npm registry and updates the metadata for
 ;; packages that already exists in our cache
 (defn update-metadata-for-existing-packages []
-  (println "Now listening for npm registry changes")
+  (log/info "Now listening for npm registry changes")
   (poll-for-changes handle-change))
 
 (defn is-scoped? [pkg-name]
@@ -54,8 +61,8 @@
     (doseq [pkg pkgs]
       (http/metadata-handler pkg true)
       (swap! updated inc)
-      (println (format "[boot-update] %s/%s" @updated t)))
-    (println "[boot-update] done!")))
+      (log/infof "[boot-update] %s/%s" @updated t))
+    (log/info "[boot-update] done!")))
 
 (comment
   (get-all-installed-packages)
@@ -68,6 +75,7 @@
         threads (Integer/parseInt (or (System/getenv "SERVER_THREADS") "128"))
         in-dev? (Boolean/parseBoolean (or (System/getenv "SERVER_DEV") "false"))
         update-on-boot? (Boolean/parseBoolean (or (System/getenv "UPDATE_ON_BOOT") "false"))]
+    (setup-exception-handler)
     ;; TODO should schedule this once a day or something, to make sure we don't
     ;; miss updates from the polling/streaming
     (when update-on-boot?
