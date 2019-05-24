@@ -19,7 +19,7 @@ services:
     restart: always
   ipfs:
     restart: always
-    command: ipfs daemon --migrate=true
+    command: daemon --migrate=true
   front:
     ports:
       - 80:80
