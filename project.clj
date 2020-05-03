@@ -8,7 +8,7 @@
                  [clj-http "3.9.1"]
                  [ring/ring-devel "1.7.1"]
                  [compojure "1.6.1"]
-                 [open-services/ipfs-api "1.1.0"]
+                 [open-services/ipfs-api "1.2.0"]
                  [open-services/npm-registry-follow "1.2.1"]
                  [io.prometheus/simpleclient_hotspot "0.6.0"]
                  [org.clojure/data.json "0.2.6"]
